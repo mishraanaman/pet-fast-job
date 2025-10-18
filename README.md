@@ -31,7 +31,7 @@ To start the project, follow these steps:
 
 `SECRET_KEY="sfhvhvhfjfjjsgfgdfgdf" ` random secret key for auth token generation
 
-`MONGODB_URL=mongodb://localhost:27017/mydatabase'` your MONGODB Atlas connection string
+`MONGO_URI ="mongodb+srv://<username>:<password>@clustername.mongodb.net"` your MONGODB Atlas connection string
 
 
 5. Start the server: `npm start`

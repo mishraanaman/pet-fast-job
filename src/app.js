@@ -1,23 +1,18 @@
-const express = require('express');
-const cors = require('cors');
-const helmet = require('helmet')
+const express = require("express");
+const helmet = require("helmet");
 const morgan = require('morgan');
-const api = require('./routes/api');
+const apiRoutes = require('./routes/api');
 
+module.exports = (dbs) => {
+  const app = express();
+  app.use(express.json());
+  app.use(require("cors")());
 
-const app = express();
+  // Use Helmet in all environments for basic security
+  app.use(helmet());
 
-app.use(helmet());
-console.log("Helmet instantiated....");
+  // Routes
+  app.use("/v1", apiRoutes);
 
-app.use(cors({
-  origin: 'http://localhost:3000',
-}));
-
-app.use(morgan('combined'))
-app.use(express.json());
-
-app.use('/v1', api);
-
-
-module.exports = app;
+  return app;
+};

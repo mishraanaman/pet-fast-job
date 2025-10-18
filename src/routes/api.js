@@ -1,12 +1,8 @@
 const express = require('express');
-
-const petsRouter = require('./pets/pets.router');
-
-const loginRouter = require('./login/login.router')
-
+const moviesRouter = require("../routes/movies/movie.router");
 const api = express.Router();
 
-api.use("/login",loginRouter)
-api.use("/pets", petsRouter);
+// GET /api/search?q=...
+api.use("/movies", moviesRouter);
 
 module.exports = api;
